@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>HOME</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .tabs {
+            overflow: hidden;
+        }
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+        #header {
+            width: 100%;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+        #header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+        .main-nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+        }
+        .main-nav ul li {
+            margin-left: 50px;
+            margin-right: 200px;
+            font-size: 20px;
+        }
+        .main-nav ul li a {
+            text-decoration: none;
+            color: #f1f1f1;
+        }
+        .home-grid {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("images/homebg.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .home-grid img {
+            max-width: 100%;
+        }
+        .home-grid a {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f1f1f1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+        .products, .aboutus {
+            padding: 20px;
+        }
+        .products {
+            background-color: black;
+            color: white;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .product-item {
+            background-color: white;
+            background-repeat: no-repeat;
+            color: black;
+            border-radius: 15px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 80px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+        .product-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .fr {
+            background-color: #662a2a;
+            color: rgb(255, 255, 255);
+        }
+        .ti {
+            background-color: rgb(71, 89, 50);
+            color: rgb(255, 255, 255);
+        }
+        .tc {
+            background-color: rgb(154, 97, 66);
+            color: rgb(255, 255, 255);
+        }
+        .kohi {
+            background-color: rgb(43, 24, 7);
+            color: rgb(255, 255, 255);
+        }
+        .product-item img {
+            margin-left: 10px;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div class="container">
+        <a href="#Home" class="hom"> <img src="images/howm.png" alt="hoowm"></a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#prods">Products</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<section class="hom" id="Home">
+    <div class="home-grid">
+        <img src="images/kadakofi.png" alt="kofi">
+        <a href="#boutus"> About Kada Kofi </a>
+    </div>
+</section>
+<section class="products" id="prods">
+    <div class="container">
+        <h1>Products</h1>
+        <div class="product-grid">
+            <a href="frappe.html" class="product-item fr">Frappe
+                <img src="images/frappe.png" alt="frap">
+            </a>
+            <a href="tea.html" class="product-item ti">Tea
+                <img src="images/tea.png" alt="tee">
+            </a>
+            <a href="tropikada.html" class="product-item tc">TropiCada
+                <img src="images/lemon.png" alt="lemon">
+            </a>
+            <a href="coffee.html" class="product-item kohi">Coffee
+                <img src="images/coffee.png" alt="coffee">
+            </a>
+        </div>
+    </div>
+</section>
+</body>
+</html>
