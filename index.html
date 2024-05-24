@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>KofiKada</title>
+    <meta charset="UTF-8">
+    <title>Kada Kofi</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <style>
+        * {
+            overflow-x: hidden;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
         }
+
         .tabs {
             overflow: hidden;
         }
+
         .container {
             width: 100%;
             margin: 0 auto;
         }
+
+        .container h1 {
+            text-align: center;
+            font-size: 40px;
+        }
+
         #header {
             width: 100%;
             background-color: transparent;
@@ -24,27 +41,32 @@
             left: 0;
             z-index: 10;
         }
+
         #header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
         }
+
         .main-nav ul {
             padding: 0;
             margin: 0;
             list-style: none;
             display: flex;
         }
+
         .main-nav ul li {
             margin-left: 50px;
             margin-right: 200px;
             font-size: 20px;
         }
+
         .main-nav ul li a {
             text-decoration: none;
             color: #f1f1f1;
         }
+
         .home-grid {
             display: flex;
             flex-direction: column;
@@ -55,30 +77,38 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
         .home-grid img {
             max-width: 100%;
         }
+
         .home-grid a {
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #f1f1f1;
-            color: black;
+            background-color: rgb(254, 144, 2, 0.5);
+            color: white;
             text-decoration: none;
             font-size: 20px;
-            border-radius: 5px;
+            border-radius: 50px;
         }
-        .products, .aboutus {
+
+        .products,
+        .aboutus {
             padding: 20px;
         }
+
         .products {
             background-color: black;
             color: white;
         }
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            overflow-y: hidden;
         }
+
         .product-item {
             background-color: white;
             background-repeat: no-repeat;
@@ -92,26 +122,32 @@
             transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
         }
+
         .product-item:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
+
         .fr {
             background-color: #662a2a;
             color: rgb(255, 255, 255);
         }
+
         .ti {
             background-color: rgb(71, 89, 50);
             color: rgb(255, 255, 255);
         }
+
         .tc {
             background-color: rgb(154, 97, 66);
             color: rgb(255, 255, 255);
         }
+
         .kohi {
             background-color: rgb(43, 24, 7);
             color: rgb(255, 255, 255);
         }
+
         .product-item img {
             margin-left: 10px;
             width: 300px;
@@ -119,41 +155,44 @@
         }
     </style>
 </head>
+
 <body>
-<header id="header">
-    <div class="container">
-        <a href="#Home" class="hom"> <img src="img/howm.png" alt="hoowm"></a>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#prods">Products</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<section class="hom" id="Home">
-    <div class="home-grid">
-        <img src="img/kadakofi.png" alt="kofi">
-        <a href="#boutus"> About Kada Kofi </a>
-    </div>
-</section>
-<section class="products" id="prods">
-    <div class="container">
-        <h1>Products</h1>
-        <div class="product-grid">
-            <a href="frappe.html" class="product-item fr">Frappe
-                <img src="img/frappe.png" alt="frap">
-            </a>
-            <a href="tea.html" class="product-item ti">Tea
-                <img src="img/tea.png" alt="tee">
-            </a>
-            <a href="tropikada.html" class="product-item tc">TropiCada
-                <img src="img/lemon.png" alt="lemon">
-            </a>
-            <a href="coffee.html" class="product-item kohi">Coffee
-                <img src="img/coffee.png" alt="coffee">
-            </a>
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="hom"> <img src="img/howm.png" alt="hoowm"></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="developers.html">About us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="hom" id="Home">
+        <div class="home-grid">
+            <img src="img/kadakofi.png" alt="kofi">
+            <a href="developers.html"> About KadaKofi </a>
         </div>
     </div>
-</section>
+    <div class="products" id="prods">
+        <div class="container">
+            <h1>Products</h1>
+            <div class="product-grid">
+                <a href="frappe.html" class="product-item fr">Frappe
+                    <img src="img/frappe.png" alt="frap">
+                </a>
+                <a href="tea.html" class="product-item ti">Tea
+                    <img src="img/tea.png" alt="tee">
+                </a>
+                <a href="tropikada.html" class="product-item tc">TropiCada
+                    <img src="img/lemon.png" alt="lemon">
+                </a>
+                <a href="coffee.html" class="product-item kohi">Coffee
+                    <img src="img/coffee.png" alt="coffee">
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
