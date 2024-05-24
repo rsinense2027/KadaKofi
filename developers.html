@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>CS DEVELOPER'S PAGE</title>
+    <style>
+        body {
+            background-color: black;
+            background-image: url('blur.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding-left: 50px;
+            padding-right: 50px;
+            overflow-x: hidden;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hat img {
+            margin-top: 30px;
+            height: 45%;
+            width: 45%;
+        }
+
+        .hat {
+            margin-left: 100px;
+            display: flex;
+        }
+
+        .text h1 {
+            font-family: 'Poppins', serif;
+            font-weight: 430;
+            font-size: 50px;
+            color: white;
+            display: flex;
+            margin-top: -40px;
+            margin-left: -150px;
+        }
+
+        .text h2 {
+            font-family: 'Poppins', serif;
+            font-weight: 230;
+            font-size: 30px;
+            color: white;
+            align-items: center;
+            justify-self: center;
+            margin-top: 200px;
+        }
+
+        .pics {
+            display: flex;
+            height: 60%;
+            width: 50%;
+            margin-top: -70px;
+        }
+
+        .again p {
+            display: flex;
+            font-size: 15px;
+            font-family: 'Poppins', serif;
+            color: white;
+            text-align: center;
+        }
+
+        .again {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            justify-items: center;
+            margin-top: -160px;
+        }
+
+        .contri {
+            padding-top: 50px;
+            padding-left: 150px;
+            padding-right: 150px;
+        }
+
+        .contri h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+            font-family: 'Poppins', serif;
+            font-weight: 430;
+        }
+
+        .contri h2 {
+            margin-top: -60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Poppins', serif;
+            font-weight: 230;
+            font-size: 30px;
+            letter-spacing: 5px;
+        }
+
+        .crain {
+            display: flex;
+            font-family: 'Poppins', serif;
+            color: white;
+            gap: 60px;
+            margin-top: -50px;
+        }
+
+        .crain h1 {
+            text-align: left;
+            font-size: 30px;
+            font-weight: 400;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .crain p {
+            justify-content: left;
+            font-size: 15px;
+            color: white;
+            padding-left: 70px;
+            padding-top: 40px;
+        }
+
+        .cjai {
+            display: flex;
+            font-family: 'Poppins', serif;
+            color: white;
+            gap: 71px;
+        }
+
+        .cjai h1 {
+            text-align: left;
+            font-size: 30px;
+            font-weight: 400;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cjai p {
+            justify-content: left;
+            font-size: 15px;
+            color: white;
+            padding-left: 65px;
+        }
+
+        .csam {
+            display: flex;
+            font-family: 'Poppins', serif;
+            color: white;
+            gap: 71px;
+        }
+
+        .csam h1 {
+            text-align: left;
+            font-size: 30px;
+            font-weight: 400;
+            justify-content: left;
+        }
+
+        .csam p {
+            justify-content: left;
+            font-size: 15px;
+            color: white;
+            padding-left: 20px;
+        }
+
+        .last h1 {
+            font-size: 50px;
+            color: white;
+            font-family: 'Poppins', serif;
+            font-weight: 430;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .centered-box {
+            width: 300px;
+            height: 200px;
+            background-color: lightblue;
+            border: 2px solid blue;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        h1 {
+            font-size: 50px;
+            color: white;
+            font-family: 'Poppins', serif;
+            font-weight: 430;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tabs {
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #header {
+            width: 100%;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        #header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+
+        .main-nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 50px;
+            margin-right: 200px;
+            font-size: 20px;
+        }
+
+        .main-nav ul li a {
+            text-decoration: none;
+            color: #f1f1f1;
+        }
+
+        .home-grid {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("img/homebg.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .home-grid img {
+            max-width: 100%;
+        }
+
+        .home-grid a {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f1f1f1;
+            color: black;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+        .refer p {
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Poppins', serif;
+            line-height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <a href="index.html" class="hom"> <img src="img/howm.png" alt="hoowm"></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="developers.html">About us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="hat">
+        <img src="Img/hat.png" alt="jssdf">
+        <div class="text">
+            <h2>About the Company</h2>
+            <h1>Who've BEAN there.</h1>
+            <div class="pics">
+                <img src="Img/3.png" alt="laskdkk">
+                <img src="Img/2.png" alt="jsd">
+                <img src="Img/1.png" alt="jsd">
+            </div>
+            <div class="again">
+                <p> Samantha Jireh <br> Narciso</p>
+                <p> Rain Jesus Jason <br> Sinense</p>
+                <p> Jaila Linnea <br> Galang</p>
+            </div>
+        </div>
+    </div>
+    <div class="contri">
+        <h1>Contributions</h1>
+        <h2> DEVELOPERS </h2>
+        <div class="crain">
+            <h1> 13 Rain Sinense</h1>
+            <p> Rain Sinense, as the head coder, expertly pulled the necessary strings to execute the website with the
+                finesse of a real and esteemed site using JavaScript. His technical prowess ensured smooth functionality
+                and a seamless user experience. Rain's dedication and skill were instrumental in bringing the team's
+                vision to life, making the website not only operational but also exceptional.</p>
+        </div>
+        <div class="cjai">
+            <h1> 18 Jaila Galang</h1>
+            <p> Jaila Galang drafted the design of the website, presenting it to her group mates to bring it to reality.
+                She oversaw the decorations of the homepage, company page, and product page with exceptional style. Her
+                comprehensive vision ensured cohesive and attractive designs throughout. Always willing to help, Jaila
+                also provided the drinks for display, demonstrating her commitment and adaptability in contributing to
+                the project's success.</p>
+        </div>
+        <div class="csam">
+            <h1> 26 Samantha Narciso</h1>
+            <p> Samantha Narciso was pivotal in our project's success, excelling in developing our homepage with a
+                modern, user-friendly design. She curated images that perfectly matched our theme and contributed
+                innovative design ideas. Beyond her technical skills, Samantha's collaborative spirit and unwavering
+                support made her the ultimate team helper, significantly elevating our work.</p>
+        </div>
+    </div>
+    <div class="refer">
+        <h1> References </h1>
+        <p> https://www.pexels.com/</p>
+        <p> https://www.canva.com/</p>
+    </div>
+</body>
+
+</html>

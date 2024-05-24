@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <title>KadaKofi | Products</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sidebar::-webkit-scrollbar {
+      display: none;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #101010;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 20;
+      top: 0;
+      right: 0;
+      background-color: white;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 10px;
+    }
+
+    .sidebar a {
+      padding: 8px 32px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: black;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: red;
+      cursor: pointer;
+    }
+
+    .sidebar .closebtn {
+      font-size: 36px;
+      margin-right: 0;
+      margin-top: 8px;
+      color: black;
+    }
+
+    .openbtn {
+      font-size: 50px !important;
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 20;
+    }
+
+    .checkout-form {
+      padding-top: 20px;
+    }
+
+    #main {
+      transition: margin-right 0.5s ease;
+
+    }
+
+    main {
+      padding: 15px 0;
+      background-color: #101010;
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-gap: 20px;
+      margin: 0 15px;
+    }
+
+    .product {
+      background-color: #202020;
+      color: #E1E2D9;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+    }
+
+    .product img {
+      width: 150px;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .product h3 {
+      margin-top: 0;
+      margin-bottom: 5px;
+      font-size: 25px;
+    }
+
+    .category {
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 14px;
+      margin-bottom: 5px;
+      width: 100px;
+      text-align: center;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #E1E2D9;
+    }
+
+
+
+
+    .cart-container {
+      width: 250px;
+      margin-right: 20px;
+      transition: width 0.5s ease;
+      padding-bottom: 15px;
+    }
+
+    .cart-container h2 {
+      margin-bottom: 20px;
+    }
+
+    .cart-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart-items li {
+      margin-bottom: 10px;
+    }
+
+    .cart-items li button {
+      margin-left: 10px;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: hidden;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+      background-color: #2c2c2c;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 20px;
+    }
+
+    .modal-content label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 3px;
+    }
+
+    .modal-content button {
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #f39c12;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .modal-content button:hover {
+      background-color: #e67e22;
+    }
+
+    .banner {
+      width: 100%;
+    }
+
+    .form-select {
+      color: #E1E2D9;
+      background-color: #202020;
+      width: 20%;
+      margin-bottom: 15px;
+      margin-left: 15px;
+    }
+
+    #header {
+      width: 100%;
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    #header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+    }
+
+    .main-nav ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+    }
+
+    .main-nav ul li {
+      margin-left: 50px;
+      margin-right: 200px;
+      font-size: 20px;
+    }
+
+    .main-nav ul li a {
+      text-decoration: none;
+      color: #f1f1f1;
+    }
+
+    .material-symbols-outlined {
+      font-size: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <div class="container">
+      <a href="index.html" class="hom"> <img src="img/howm.png" alt="hoowm"></a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="developers.html">About us</a></li>
+          <li><a href="products.html">Products</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div id="checkoutModal" class="modal">
+    <div class="modal-content">
+      <h2>Checkout Form</h2>
+      <form id="checkoutForm" action="http://sirjm.infinityfreeapp.com/checkout.php" method="GET">
+        <label for="cust_name">Name:</label>
+        <input type="text" id="cust_name" name="cust_name" required>
+        <label for="cust_addr">Address:</label>
+        <input type="text" id="cust_addr" name="cust_addr" required>
+        <label for="cust_email">Email:</label>
+        <input type="email" id="cust_email" name="cust_email" required>
+        <input type="hidden" id="cust_order" name="cust_order" value="">
+        <button type="submit">Checkout</button>
+      </form>
+    </div>
+  </div>
+  <button id="sideopen" class="openbtn" onclick="openNav()">
+    <span class="material-symbols-outlined">shopping_cart</span>
+  </button>
+  <img src="img/banner.png" alt="dfas" class="banner">
+
+  <div id="mySidebar" class="sidebar">
+    <a class="closebtn" onclick="closeNav()">×</a>
+    <div class="container cart-container">
+      <section class="cart">
+        <h2>Cart</h2>
+        <ul class="cart-items" id="cartItems"></ul>
+        <div>
+          <h3>Total: ₱<span id="totalPrice">0.00</span></h3>
+        </div>
+        <button class="button" id="goToCheckout">Checkout</button>
+      </section>
+    </div>
+  </div>
+
+  <main id="main">
+    <select id="categoryFilter" class="form-select" aria-label="Filter by category">
+      <option value="all">All</option>
+      <option value="Coffee">Coffee</option>
+      <option value="Frappe">Frappe</option>
+      <option value="Tea">Tea</option>
+      <option value="Tropicada">Tropicada</option>
+    </select>
+    <div class="products-container" id="products"></div>
+  </main>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "300px";
+      document.getElementById("main").style.marginRight = "300px";
+      document.getElementById("sideopen").style.display = "none";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginRight = "0";
+      document.getElementById("sideopen").style.display = "block";
+    }
+
+    const cartItems = [];
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const productsContainer = document.getElementById("products");
+      const categoryFilter = document.getElementById("categoryFilter");
+
+      const coffeeProducts = [
+        { prod_name: "Espresso", prod_price: 100, image: "img/espresso.png", category: "Coffee" },
+        { prod_name: "Black Americano", prod_price: 100, image: "img/black.png", category: "Coffee" },
+        { prod_name: "Cappuccino", prod_price: 100, image: "img/cappuccino.png", category: "Coffee" },
+        { prod_name: "Cafe Mocha", prod_price: 100, image: "img/mocha.png", category: "Coffee" },
+        { prod_name: "Flat White Americano", prod_price: 100, image: "img/flat.png", category: "Coffee" },
+        { prod_name: "Affogato", prod_price: 100, image: "img/affogato.png", category: "Coffee" },
+      ];
+
+      const tropiProducts = [
+        { prod_name: "Minty Lime", prod_price: 100, image: "img/minty.png", category: "Tropicada" },
+        { prod_name: "Orange Blossom Bliss", prod_price: 100, image: "img/orange.png", category: "Tropicada" },
+        { prod_name: "Pomelo One", prod_price: 100, image: "img/pomelo.png", category: "Tropicada" },
+        { prod_name: "Berry Blaster", prod_price: 100, image: "img/berry.png", category: "Tropicada" },
+        { prod_name: "TropiCada Delight", prod_price: 100, image: "img/tropicada.png", category: "Tropicada" },
+        { prod_name: "Raspberry Burst Ade", prod_price: 100, image: "img/raspberry.png", category: "Tropicada" },
+      ];
+      const teaProducts = [
+        { prod_name: "Black Bean", prod_price: 100, image: "img/blackbean.png", category: "Tea" },
+        { prod_name: "Butterfly", prod_price: 100, image: "img/butterfly.png", category: "Tea" },
+        { prod_name: "Chamomile", prod_price: 100, image: "img/chamomile.png", category: "Tea" },
+        { prod_name: "Hibiscus", prod_price: 100, image: "img/hibiscus.png", category: "Tea" },
+        { prod_name: "Matcha", prod_price: 100, image: "img/matchaTea.png", category: "Tea" },
+        { prod_name: "Rooibos", prod_price: 100, image: "img/rooibos.png", category: "Tea" },
+      ];
+
+      const frappeProducts = [
+        { prod_name: "Bubblegum", prod_price: 100, image: "img/bubblegum.png", category: "Frappe" },
+        { prod_name: "Java Chip", prod_price: 100, image: "img/java.png", category: "Frappe" },
+        { prod_name: "Lavender Crème", prod_price: 100, image: "img/lavender.png", category: "Frappe" },
+        { prod_name: "Signature Choco", prod_price: 100, image: "img/signature.png", category: "Frappe" },
+        { prod_name: "Matcha Crème", prod_price: 100, image: "img/matcha.png", category: "Frappe" },
+        { prod_name: "Strawberry Vanilla", prod_price: 100, image: "img/strawberry.png", category: "Frappe" },
+      ];
+      const productsList = [...coffeeProducts, ...tropiProducts, ...frappeProducts, ...teaProducts];
+
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      function createProductElement(product) {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
+        productDiv.setAttribute("data-category", product.category);
+
+        const img = document.createElement("img");
+        img.src = product.image;
+        img.alt = product.prod_name;
+
+        const productInfo = document.createElement("div");
+        productInfo.classList.add("product-info");
+
+        const name = document.createElement("h3");
+        name.textContent = product.prod_name;
+
+        const category = document.createElement("div");
+        category.classList.add("category");
+        category.textContent = product.category;
+        if (product.category === "Tea") {
+          category.style.backgroundColor = "#353516";
+        } else if (product.category === "Coffee") {
+          category.style.backgroundColor = "#1B0903";
+        } else if (product.category === "Frappe") {
+          category.style.backgroundColor = "#4E1500";
+        } else if (product.category === "Tropicada") {
+          category.style.backgroundColor = "#8E5100";
+        }
+
+        const price = document.createElement("p");
+        price.classList.add("price");
+        price.textContent = `₱${product.prod_price.toFixed(2)}`;
+
+        const button = document.createElement("button");
+        button.textContent = "Add to Cart";
+        button.addEventListener("click", function () {
+          addToCart(product);
+        });
+
+        productInfo.appendChild(name);
+        productInfo.appendChild(category);
+        productInfo.appendChild(price);
+        productInfo.appendChild(button);
+
+        productDiv.appendChild(img);
+        productDiv.appendChild(productInfo);
+
+        return productDiv;
+      }
+
+
+
+      function displayProducts(products) {
+        productsContainer.innerHTML = "";
+        products.forEach(function (product) {
+          const productElement = createProductElement(product);
+          productsContainer.appendChild(productElement);
+        });
+      }
+
+      function addToCart(product) {
+        const cartItem = {
+          prod_name: product.prod_name,
+          prod_price: product.prod_price,
+        };
+        cartItems.push(cartItem);
+        updateCartDisplay();
+        updateTotalPrice();
+        updateCheckoutFormData();
+      }
+
+      function updateCartDisplay() {
+        const cartItemsList = document.getElementById("cartItems");
+        cartItemsList.innerHTML = "";
+
+        cartItems.forEach(function (item, index) {
+          const li = document.createElement("li");
+          li.textContent = item.prod_name + " - ₱" + item.prod_price.toFixed(2);
+          li.setAttribute("data-price", item.prod_price.toFixed(2));
+
+          const removeBtn = document.createElement("button");
+          removeBtn.textContent = "Remove";
+          removeBtn.addEventListener("click", function () {
+            removeFromCart(index);
+            updateCartDisplay();
+            updateCheckoutFormData();
+          });
+
+          li.appendChild(removeBtn);
+          cartItemsList.appendChild(li);
+        });
+      }
+
+      function updateCheckoutFormData() {
+        const custOrderInput = document.getElementById("cust_order");
+        const custOrderValue = cartItems.map(function (item) {
+          return { prod_name: item.prod_name, prod_price: item.prod_price };
+        });
+        custOrderInput.value = JSON.stringify(custOrderValue);
+      }
+
+      function updateTotalPrice() {
+        const totalPrice = document.getElementById("totalPrice");
+        let total = 0;
+        cartItems.forEach(function (item) {
+          total += item.prod_price;
+        });
+        totalPrice.textContent = total.toFixed(2);
+      }
+
+      function removeFromCart(index) {
+        cartItems.splice(index, 1);
+        updateTotalPrice();
+      }
+
+      categoryFilter.addEventListener("change", function () {
+        const selectedCategory = categoryFilter.value;
+        let filteredProducts = productsList;
+        if (selectedCategory !== "all") {
+          filteredProducts = productsList.filter(product => product.category === selectedCategory);
+          document.getElementById("products").style.gridTemplateColumns = "repeat(2, minmax(0, 1fr))";
+        }
+        else if (selectedCategory === "all") {
+          document.getElementById("products").style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+        }
+        displayProducts(filteredProducts);
+      });
+
+      const shuffledProducts = shuffle(productsList);
+      displayProducts(shuffledProducts);
+
+      document.getElementById("checkoutForm").addEventListener("submit", function (event) {
+        updateCheckoutFormData();
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var modal = document.getElementById('checkoutModal');
+      var checkoutButton = document.getElementById('goToCheckout');
+      checkoutButton.onclick = function () {
+        modal.style.display = 'block';
+      }
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
