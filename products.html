@@ -59,33 +59,52 @@
       z-index: 20;
       top: 0;
       right: 0;
-      background-color: white;
+      background-image: linear-gradient(#32230C,#693F28,#32230C);
       overflow-x: hidden;
       transition: 0.5s;
       padding-top: 10px;
+      border-radius: 50px 0px 0px 50px;
+
     }
 
-    .sidebar a {
+    .sidebar div a {
       padding: 8px 32px 8px 32px;
       text-decoration: none;
-      font-size: 25px;
-      color: black;
+      font-size: 50px;
+      color: white;
       display: block;
       transition: 0.3s;
     }
 
-    .sidebar a:hover {
+    .sidebar div a:hover {
       color: red;
       cursor: pointer;
+      background-image: url("img/closeHover.png");
     }
 
     .sidebar .closebtn {
-      font-size: 36px;
+      font-size: 60px;
       margin-right: 0;
-      margin-top: 8px;
-      color: black;
+      margin-top: 24px;
+      margin-left: 35px;
+      color: white;
+      background-image: url("img/close.png");
+      width: 56px;
+      height: 70px;
+      background-repeat: no-repeat;
+  background-size: 56px 70px;
     }
-
+    .sidebar div{
+      display: flex;
+      height: 120px;
+      justify-content: space-between;
+    }
+    .sidebar div img{
+      margin-right: 10px;
+      margin-top: 2px;
+      height: 90%;
+      transition: 3s;
+    }
     .openbtn {
       font-size: 50px !important;
       cursor: pointer;
@@ -139,6 +158,12 @@
     .product-info {
       flex: 1;
     }
+    .product-info button{
+      background-color: #DEA559;
+      color: white;
+      border-radius: 200px;
+      padding: 5px;
+    }
 
     .product h3 {
       margin-top: 0;
@@ -164,12 +189,29 @@
 
 
     .cart-container {
-      width: 250px;
       margin-right: 20px;
       transition: width 0.5s ease;
       padding-bottom: 15px;
+      display: flex;
+    height: 120px;
+    justify-content: space-between;
     }
-
+    .cart{
+      width: 100%;
+    }
+    .cart div{
+      display: flex;
+    height: 120px;
+    justify-content:center;
+    }
+    .cart div h2{
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-right: 30px;
+      font-size: 70px;
+      color: white;
+    }
     .cart-container h2 {
       margin-bottom: 20px;
     }
@@ -180,11 +222,27 @@
     }
 
     .cart-items li {
+      display: flex;
+      justify-content: space-between;
       margin-bottom: 10px;
+      color: white;
+      font-size: 25px;
     }
 
-    .cart-items li button {
+    .cart-items li div {
+      display: flex;
+      align-items: center;
       margin-left: 10px;
+      background-image: url("img/close.png");
+      width: 24px;
+      height: 30px;
+      background-repeat: no-repeat;
+      background-size: 24px 30px;
+    }
+    .cart-items li div:hover {
+    color: red;
+      cursor: pointer;
+      background-image: url("img/closeHover.png");
     }
 
     footer {
@@ -298,6 +356,34 @@
     .material-symbols-outlined {
       font-size: 50px;
     }
+    .checkoutArea{
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(0,0,0, 0.2);
+      width: 400px;
+      transform: translateX(-20px);
+      height: 25vh !important;
+    }
+    .checkoutArea h2{
+      display: flex;
+      justify-content: center;
+      font-size: 40px !important;
+      margin: 0 !important;
+      margin-bottom: 5px !important;
+    }
+    .checkoutArea h3{
+      display: flex;
+      font-size: 50px !important;
+      margin: 0 !important;
+      color: white;
+        }
+        #goToCheckout{
+          background-color: #DEA559;
+          color: white;
+          height: 70px;
+          margin-bottom: 5px;
+          border-radius: 200px;
+        }
   </style>
 </head>
 
@@ -334,15 +420,24 @@
   <img src="img/banner.png" alt="dfas" class="banner">
 
   <div id="mySidebar" class="sidebar">
-    <a class="closebtn" onclick="closeNav()">×</a>
+    
+    <div>
+      <a class="closebtn" onclick="closeNav()"></a>
+      <img src="img/cartName.png" alt="asdasd">
+    </div>
     <div class="container cart-container">
       <section class="cart">
-        <h2>Cart</h2>
-        <ul class="cart-items" id="cartItems"></ul>
         <div>
-          <h3>Total: ₱<span id="totalPrice">0.00</span></h3>
+          <h2>Cart</h2>
+          <img src="img/cart.png" alt="asdasdasd">
         </div>
-        <button class="button" id="goToCheckout">Checkout</button>
+        <ul class="cart-items" id="cartItems"></ul>
+        <div class="checkoutArea">
+          <h3>Total:</h3>
+          <h2>₱<span id="totalPrice">0.00</span></h2>
+          <button class="button" id="goToCheckout">Checkout</button>
+        </div>
+        
       </section>
     </div>
   </div>
@@ -360,14 +455,12 @@
 
   <script>
     function openNav() {
-      document.getElementById("mySidebar").style.width = "300px";
-      document.getElementById("main").style.marginRight = "300px";
+      document.getElementById("mySidebar").style.width = "400px";
       document.getElementById("sideopen").style.display = "none";
     }
 
     function closeNav() {
       document.getElementById("mySidebar").style.width = "0";
-      document.getElementById("main").style.marginRight = "0";
       document.getElementById("sideopen").style.display = "block";
     }
 
@@ -500,8 +593,8 @@
           li.textContent = item.prod_name + " - ₱" + item.prod_price.toFixed(2);
           li.setAttribute("data-price", item.prod_price.toFixed(2));
 
-          const removeBtn = document.createElement("button");
-          removeBtn.textContent = "Remove";
+          const removeBtn = document.createElement("div");
+          removeBtn.textContent = "";
           removeBtn.addEventListener("click", function () {
             removeFromCart(index);
             updateCartDisplay();
